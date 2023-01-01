@@ -188,7 +188,7 @@ export function GetSlotValues(filledSlots?: Slots): SlotValues {
     if (filledSlots) {
         Object.keys(filledSlots).forEach((item) => {
             const name = filledSlots[item].name;
-            const value = filledSlots[item].value;
+            const value = filledSlots[item].value || ""; //FIXME
             const confirmationStatus = filledSlots[item].confirmationStatus;
 
             if (filledSlots[item] &&

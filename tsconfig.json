@@ -20,6 +20,9 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true
   },
+  "include": [
+    "lambda/**/*.ts"
+  ],
   "exclude": [
     "/**/node_modules",
     "lambda/local/",

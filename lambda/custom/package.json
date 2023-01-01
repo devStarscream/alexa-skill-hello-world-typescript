@@ -1,7 +1,7 @@
 {
   "name": "hello-world",
   "version": "1.0.0",
-  "description": "",
+  "description": "Hello World project in Typescript.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,9 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ask-sdk-core": "^2.0.7",
-    "ask-sdk-model": "^1.3.1",
-    "i18next": "^11.3.5",
+    "ask-sdk-core": "^2.12.1",
+    "ask-sdk-model": "^1.39.0",
+    "i18next": "^22.4.6",
     "i18next-sprintf-postprocessor": "^0.2.2"
   }
 }

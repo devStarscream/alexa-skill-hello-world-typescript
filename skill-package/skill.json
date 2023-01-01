@@ -9,8 +9,16 @@
             "Alexa tell greeter hello",
             "Alexa ask greeter to say hello"
           ],
-          "name": "ask-hello",
+          "name": "Hello World Ts",
           "description": "Sample Full Description"
+        },
+        "it-IT": {
+          "summary": "Esempio descrizione corta.",
+          "examplePhrases": [
+            "Alexa apri ciao mondo"
+          ],
+          "name": "Ciao Mondo Ts",
+          "description": "Esempio descrizine completa"
         }
       },
       "isAvailableWorldwide": true,
@@ -21,7 +29,7 @@
     "apis": {
       "custom": {
         "endpoint": {
-          "sourceDir": "dist/custom"
+          "uri": "arn:aws:lambda:eu-west-1:545884892857:function:ask-ask-hello-default-default-1672492102576"
         }
       }
     },

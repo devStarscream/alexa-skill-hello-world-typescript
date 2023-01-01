@@ -14,7 +14,9 @@ gulp.task("compile", function () {
 
 // copy json files (e.g. localization json)
 gulp.task("json", function () {
-    return gulp.src(IN_DIR + "/**/*.json").pipe(gulp.dest(OUT_DIR));
+    return gulp
+        .src(IN_DIR + "/**/*.json")
+        .pipe(gulp.dest(OUT_DIR));
 });
 
 gulp.task("default", gulp.parallel(["compile", "json"]));
