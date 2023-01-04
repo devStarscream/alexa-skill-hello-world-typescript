@@ -8,7 +8,7 @@ export const handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
         // Intents.Debug,
 
-        // Default intents
+        // Default Skill intents
         Intents.Launch,
         Intents.Help,
         Intents.Stop,
@@ -16,7 +16,7 @@ export const handler = Alexa.SkillBuilders.custom()
         Intents.SystemExceptionEncountered,
         Intents.Fallback,
 
-        // Hello intents
+        // Custom Skill intents
         HelloIntents.HelloWorld
     )
     .addErrorHandlers(
@@ -24,7 +24,11 @@ export const handler = Alexa.SkillBuilders.custom()
         Errors.Unexpected
     )
     .addRequestInterceptors(
+        Interceptors.Logging,
         Interceptors.Localization,
         Interceptors.Slots
+    )
+    .addResponseInterceptors(
+        Interceptors.Response
     )
     .lambda();

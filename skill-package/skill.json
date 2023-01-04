@@ -1,31 +1,5 @@
 {
   "manifest": {
-    "publishingInformation": {
-      "locales": {
-        "en-US": {
-          "summary": "Sample Short Description",
-          "examplePhrases": [
-            "Alexa open greeter",
-            "Alexa tell greeter hello",
-            "Alexa ask greeter to say hello"
-          ],
-          "name": "Hello World Ts",
-          "description": "Sample Full Description"
-        },
-        "it-IT": {
-          "summary": "Esempio descrizione corta.",
-          "examplePhrases": [
-            "Alexa apri ciao mondo"
-          ],
-          "name": "Ciao Mondo Ts",
-          "description": "Esempio descrizine completa"
-        }
-      },
-      "isAvailableWorldwide": true,
-      "testingInstructions": "Sample Testing Instructions.",
-      "category": "EDUCATION_AND_REFERENCE",
-      "distributionCountries": []
-    },
     "apis": {
       "custom": {
         "endpoint": {
@@ -33,6 +7,51 @@
         }
       }
     },
-    "manifestVersion": "1.0"
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "locales": {
+        "it-IT": {},
+        "en-US": {}
+      },
+      "shoppingKit": {
+        "isAmazonAssociatesOnAlexaEnabled": false,
+        "isShoppingActionsEnabled": false
+      }
+    },
+    "publishingInformation": {
+      "automaticDistribution": {
+        "isActive": false
+      },
+      "category": "EDUCATION_AND_REFERENCE",
+      "distributionCountries": [],
+      "isAvailableWorldwide": true,
+      "locales": {
+        "en-US": {
+          "description": "Sample Full Description",
+          "examplePhrases": [
+            "Alexa open greeter",
+            "Alexa tell greeter hello",
+            "Alexa ask greeter to say hello"
+          ],
+          "keywords": [],
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/d3ff/0e0040be01264169836e2fb7b632a390/APP_ICON_LARGE?versionId=xCqNRYxHH4j8Sh7NofwhNGo7ceIPf4p2&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230104T215322Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86399&X-Amz-Credential=AKIAWBV6LQ4QJ72TE65Z%2F20230104%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=117b01d8aa734d2aab9ac9e0cbad990bf297b486bd35ff6a7ef44ff6654b2c55",
+          "name": "Hello World Ts",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/e759/533c7b2080d740ff92a6cca1c4362df4/APP_ICON?versionId=NAApC92oZE8Kc3BRmzjxF6CreDrV2Na.&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230104T215322Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QJ72TE65Z%2F20230104%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=e7d77821aa667b79dc3567ac009e0240dc0a12883c211e7f8307e1f22563bc8f",
+          "summary": "Sample Short Description"
+        },
+        "it-IT": {
+          "description": "Esempio descrizine completa",
+          "examplePhrases": [
+            "Alexa apri ciao mondo"
+          ],
+          "keywords": [],
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/dc56/385e385dd55f4aa98d578f20f3472a1d/APP_ICON_LARGE?versionId=COK.GhmYrkl66jranua9Rie_WXbUPqOC&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230104T215322Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QJ72TE65Z%2F20230104%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=d500c6479b94cd2b9ffd99a5c9d4e92c1ebdb2588c94088d0aa6db59dba7fc94",
+          "name": "Ciao Mondo Ts",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/490f/b44b3ac589564788b4d50da387a6cb84/APP_ICON?versionId=PbNnTE2CXtJCw8S3pp2oGF_nwlmG1zcf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230104T215322Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QJ72TE65Z%2F20230104%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=850582f054e26f8be1c5a5a2ca43bc432bfc93649fae17a49d8a6afb393c407c",
+          "summary": "Esempio descrizione corta."
+        }
+      },
+      "testingInstructions": "Sample Testing Instructions."
+    }
   }
 }

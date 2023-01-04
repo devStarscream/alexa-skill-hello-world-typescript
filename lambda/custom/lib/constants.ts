@@ -19,6 +19,10 @@ export enum ErrorTypes {
     Unexpected = "UnexpectedError",
 }
 
+export enum ErrorLogStrings {
+    SkillErrorTag = "SKILL_ERROR"
+}
+
 export enum LocaleTypes {
     deDE = "de-DE",
     enAU = "en-AU",
@@ -30,6 +34,7 @@ export enum LocaleTypes {
     frFR = "fr-FR",
     itIT = "it-IT",
     jaJP = "ja-JP",
+    arSA = "ar-SA",
 }
 
 export enum Strings {

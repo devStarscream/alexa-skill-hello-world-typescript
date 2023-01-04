@@ -213,3 +213,9 @@ Taken from [the official hello world project](https://github.com/alexa/skill-sam
 ## License
 
 Open sourced under the [MIT license](./LICENSE.md).
+
+## Credits
+This project takes as reference the solutions adopted below:
+1. https://dzone.com/articles/alexa-skill-with-typescript
+2. https://github.com/Xzya/alexa-typescript-starter#local-development
+

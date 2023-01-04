@@ -1,2 +1,2 @@
-export * from "./Localization";
-export * from "./Slots";
+export * from "./request";
+export * from "./response";

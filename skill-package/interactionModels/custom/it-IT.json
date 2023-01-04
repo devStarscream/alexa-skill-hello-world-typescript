@@ -13,7 +13,12 @@
         },
         {
           "name": "AMAZON.StopIntent",
-          "samples": []
+          "samples": [
+            "stop",
+            "basta",
+            "bastaaa",
+            "stoppa"
+          ]
         },
         {
           "name": "AMAZON.FallbackIntent",
