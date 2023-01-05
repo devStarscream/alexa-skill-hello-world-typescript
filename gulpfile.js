@@ -19,4 +19,10 @@ gulp.task("json", function () {
         .pipe(gulp.dest(`${OUT_DIR}/custom`));
 });
 
-gulp.task("default", gulp.parallel(["compile", "json"]));
+gulp.task("json-local", function () {
+    return gulp
+        .src(`${IN_DIR}/local/*.json`)
+        .pipe(gulp.dest(`${OUT_DIR}/local`));
+});
+
+gulp.task("default", gulp.parallel(["compile", "json", "json-local"]));

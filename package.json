@@ -6,6 +6,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "pre-build": "npm run clean && gulp && cd dist/custom && npm i && cd ../..",
+    "pre-build-2": "npm run clean && gulp && cd dist/custom && npm i && cd ../.. && cd dist/local && npm i && cd ../..",
     "build": "npm run clean && npm run test:coverage && gulp",
     "deploy": "npm run pre-build && ask deploy --profile dev-starscream",
     "deploy:lambda": "npm run build && ask deploy --profile dev-starscream --target lambda",

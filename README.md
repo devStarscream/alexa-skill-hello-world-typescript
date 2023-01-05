@@ -1,13 +1,13 @@
 [![Build Status](https://travis-ci.org/Xzya/alexa-typescript-starter.svg?branch=master)](https://travis-ci.org/Xzya/alexa-typescript-starter)
 [![codecov](https://codecov.io/gh/Xzya/alexa-typescript-starter/branch/master/graph/badge.svg)](https://codecov.io/gh/Xzya/alexa-typescript-starter)
 
-# Alexa Skill starter project using AWS Lambda and Typescript
+# Alexa Hello World Skill project using AWS Lambda and Typescript
 
 This is a simple starter project for Alexa skills using Typescript.
 
 ## What is included in the project
 
-- Default built-in intent / request handlers
+### Default built-in intent / request handlers
 
 | Name |
 | --- |
@@ -19,14 +19,14 @@ This is a simple starter project for Alexa skills using Typescript.
 | `AMAZON.CancelIntent` |
 | `AMAZON.FallbackIntent` |
 
-- Custom Intent handlers
+### Custom Intent handlers
 
 | Name | Description |
 | --- | --- |
 | `HelloWorld` | Triggered when the user says "hello", will answer back with "hello". |
 | `Debug` | Can be placed at the beginning of the request handlers stack and it will print the `handlerInput`. Useful for debugging. |
 
-- Error handlers
+### Error handlers
 
 | Name | Description |
 | --- | --- |
@@ -40,31 +40,33 @@ This is a simple starter project for Alexa skills using Typescript.
 | `Localization` | Adds `i18next` localization functions to the `RequestAttributes`. |
 | `Slots` | Parses the slot values, adds additional useful information to them (e.g. if it was an exact match, or if it's ambiguous etc.), and adds them to the `RequestAttributes`. Check the `GetSlotValues` function inside `lambda/custom/lib/helpers.ts` for more details. |
 
-- Localization strings
+### Extra content
+
+#### Localization strings
 
 Check `lambda/custom/lib/strings.ts`.
 
-- Constants
+#### Constants
 
 Including the String keys, so you can have type safety everywhere.
 
 Check `lambda/custom/lib/constants.ts`.
 
-- Helper functions
+#### Helper functions
 
 Many helper functions which should reduce code duplication, and reduce the code needed to do common tasks.
 
 Check `lambda/custom/lib/helpers.ts`.
 
-- Local development
+### Local development
 
 Contains an `http` server using `express`, which you can use with `ngrok` or `servo.net` during local development. Check the [Local development section below](#local-development) for more details.
 
-- Scripts
+### Scripts
 
 There are a few scripts inside `package.json` for building and deploying your lambda function using the `ask-cli`. Check the [Developer tasks section below](#developer-tasks) for more details.
 
-- Tests
+### Tests
 
 The project contains automated tests using [jest](https://jestjs.io/). Check the `__tests__` folder.
 

@@ -5,10 +5,14 @@
     "lib": [
       "es6"
     ],
-    "moduleResolution": "node",
-    "rootDir": "lambda",
-    "outDir": "dist",
+    // To support debugging TypeScript in combination with the executing JavaScript code, VS Code relies on source maps for the debugger to map between the original TypeScript source code and the running JavaScript. 
+    // You can create source maps during the build by setting "sourceMap": true in your tsconfig.json.
     "sourceMap": false,
+
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "rootDir": "./lambda",
+    "outDir": "./dist",
     "allowJs": false,
     "noImplicitAny": true,
     "noUnusedLocals": true,
@@ -18,8 +22,7 @@
     "preserveConstEnums": true,
     "suppressImplicitAnyIndexErrors": true,
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "baseUrl": "."
+    "strict": true
   },
   "include": [
     "lambda/**/*.ts"
