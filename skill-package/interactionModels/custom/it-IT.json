@@ -33,9 +33,14 @@
             "saluti mondo",
             "salve mondo"
           ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
         }
       ],
       "types": []
     }
-  }
+  },
+  "version": "2"
 }

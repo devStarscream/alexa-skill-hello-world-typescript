@@ -29,9 +29,14 @@
             "say hello",
             "say hello world"
           ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
         }
       ],
       "types": []
     }
-  }
+  },
+  "version": "5"
 }

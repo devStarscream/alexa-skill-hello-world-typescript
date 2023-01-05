@@ -7,7 +7,7 @@ This is a simple starter project for Alexa skills using Typescript.
 
 ## What is included in the project
 
-- Default request handlers
+- Default built-in intent / request handlers
 
 | Name |
 | --- |
@@ -15,10 +15,11 @@ This is a simple starter project for Alexa skills using Typescript.
 | `SessionEndedRequest` |
 | `System.ExceptionEncountered` |
 | `AMAZON.HelpIntent` |
-| `AMAZON.StopIntent` and `AMAZON.CancelIntent` |
+| `AMAZON.StopIntent`|
+| `AMAZON.CancelIntent` |
 | `AMAZON.FallbackIntent` |
 
-- Extra handlers
+- Custom Intent handlers
 
 | Name | Description |
 | --- | --- |
@@ -122,11 +123,11 @@ This is the easiest to setup
 
 1. You need to have an SSH client installed, then simply run
 
-```bash
-$ ssh -R 80:localhost:3980 serveo.net
-Forwarding HTTP traffic from [https://YOUR_URL]
-Press g to start a GUI session and ctrl-c to quit.
-```
+	1. ```bash
+	   $ ssh -R 80:localhost:3980 serveo.net
+	   ```
+	2. Forwarding HTTP traffic from [https://YOUR_URL]
+	3. Press g to start a GUI session and ctrl-c to quit.
 
 2. Once you see the URL, copy it and go to your Skill console.
 
