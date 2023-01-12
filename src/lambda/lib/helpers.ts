@@ -88,14 +88,14 @@ export function GetSessionAttributes(handlerInput: HandlerInput): SessionAttribu
     return handlerInput.attributesManager.getSessionAttributes() as SessionAttributes;
 }
 
-/**
- * Gets the directive service client.
- * 
- * @param handlerInput 
- */
-export function GetDirectiveServiceClient(handlerInput: HandlerInput): services.directive.DirectiveServiceClient {
-    return handlerInput.serviceClientFactory!.getDirectiveServiceClient();
-}
+// /**
+//  * Gets the directive service client.
+//  * 
+//  * @param handlerInput 
+//  */
+// export function GetDirectiveServiceClient(handlerInput: HandlerInput): services.directive.DirectiveServiceClient {
+//     return handlerInput.serviceClientFactory!.getDirectiveServiceClient();
+// }
 
 /**
  * Resets the given slot value by setting it to an empty string.

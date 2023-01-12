@@ -1,4 +1,5 @@
 import * as Alexa from "ask-sdk-core";
+import * as Handlers from "./handlers";
 import * as Intents from "./intents";
 import * as Errors from "./errors";
 import * as Interceptors from "./interceptors";
@@ -9,10 +10,10 @@ export const handler = Alexa.SkillBuilders.custom()
         // Intents.Debug,
 
         // Default Skill intents
-        Intents.Launch,
+        Handlers.Launch,
         Intents.Help,
         Intents.Stop,
-        Intents.SessionEnded,
+        Handlers.SessionEnded,
         Intents.SystemExceptionEncountered,
         Intents.Fallback,
 

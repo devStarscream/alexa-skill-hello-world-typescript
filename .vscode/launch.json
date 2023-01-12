@@ -27,6 +27,30 @@
                 "EU"
             ],
             "cwd": "${workspaceFolder}/dist/custom"
+        },
+        {
+            "name": "Alexa Skill (Ts)",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/src/debugger",
+            "program": "${workspaceFolder}/src/debugger/index.ts",
+            "sourceMaps": true,
+            "internalConsoleOptions": "openOnSessionStart",
+            "outFiles": [
+                "${workspaceFolder}/dist/debugger/*.js"
+            ],
+            "args": [
+                "--accessToken",
+                "${command:ask.accessToken}",
+                "--skillId",
+                "${command:ask.skillIdFromWorkspace}",
+                "--handlerName",
+                "handler",
+                "--skillEntryFile",
+                "${workspaceFolder}/dist/debugger/index.js",
+                "--region",
+                "EU"
+            ]
         }
     ]
 }
