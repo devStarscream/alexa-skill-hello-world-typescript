@@ -8,7 +8,7 @@
             "name": "Alexa Skill (Node)",
             "type": "node",
             "request": "launch",
-            "preLaunchTask": "npm: pre-build",
+            // "preLaunchTask": "npm: pre-build",
             "program": "${command:ask.debugAdapterPath}",
             "internalConsoleOptions": "openOnSessionStart",
             "outFiles": [

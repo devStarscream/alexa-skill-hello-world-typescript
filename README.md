@@ -64,6 +64,10 @@ Check `lambda/custom/lib/helpers.ts`.
  1. `Alexa Skill (Node)` debugger
  2. `Alexa Skill (Ts)` debugger
 
+
+Follow the configuration 
+https://developer.amazon.com/en-US/docs/alexa/ask-toolkit/vs-code-testing-simulator.html
+
 #### Typescript debugger configuration
 This configuration is derived from [ask-sdk-local-debug](https://github.com/alexa/alexa-skills-kit-sdk-for-nodejs/tree/2.0.x/ask-sdk-local-debug) module. Check the module README for more details.
 

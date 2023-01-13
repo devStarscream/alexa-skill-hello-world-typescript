@@ -16,9 +16,9 @@
   "devDependencies": {
     "@types/node": "^18.11.18",
     "@types/ws": "^8.5.4",
-    "ask-sdk-local-debug": "^1.1.0",
     "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-plugin-import": "^2.27.4",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "ask-sdk-local-debug": "^1.1.0"
   }
 }

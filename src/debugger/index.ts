@@ -1,71 +1,37 @@
 /**
  * IMPORTS
  */
-
-// const WebSocket = require('ws');
-// const ClientConfigBuilder = require('ask-sdk-local-debug/dist/builder/ClientConfigBuilder');
-// const SkillInvokerConfigBuilder = require('ask-sdk-local-debug/dist/builder/SkillInvokerConfigBuilder');
-// const WebSocketClientConfigBuilder = require('ask-sdk-local-debug/dist/builder/WebSocketClientConfigBuilder');
-// const LocalDebugClient = require('ask-sdk-local-debug/dist/client/LocalDebugClient');
-// const { argsParser /*, getHandlerFunction*/ } = require('ask-sdk-local-debug/dist/util/ArgsParserUtils');
-
-
-// const express = require("express");
-// const LambdaHandler = require("ask-sdk-core/dist/skill/factory/BaseSkillFactory");
-// const RequestEnvelope = require("ask-sdk-model");
-// const skillHandler = require("../lambda");
-
-// import { WebSocket } from 'ws';
-// import { ClientConfigBuilder } from 'ask-sdk-local-debug/dist/builder/ClientConfigBuilder';
-// import { SkillInvokerConfigBuilder } from 'ask-sdk-local-debug/dist/builder/SkillInvokerConfigBuilder';
-// import { WebSocketClientConfigBuilder } from 'ask-sdk-local-debug/dist/builder/WebSocketClientConfigBuilder';
-// import { LocalDebugClient } from 'ask-sdk-local-debug/dist/client/LocalDebugClient';
-// import { argsParser /*, getHandlerFunction*/ } from 'ask-sdk-local-debug/dist/util/ArgsParserUtils';
-
 import { WebSocket } from 'ws';
+// @ts-ignore
 import { ClientConfigBuilder } from 'ask-sdk-local-debug';
+// @ts-ignore
 import { SkillInvokerConfigBuilder } from 'ask-sdk-local-debug';
+// @ts-ignore
 import { WebSocketClientConfigBuilder } from 'ask-sdk-local-debug';
+// @ts-ignore
 import { LocalDebugClient } from 'ask-sdk-local-debug';
+// @ts-ignore
 import { argsParser } from 'ask-sdk-local-debug';
 
-// import { ClientConfigBuilder } from './node_modules/ask-sdk-local-debug/dist/builder/ClientConfigBuilder';
-// import { SkillInvokerConfigBuilder } from './node_modules/ask-sdk-local-debug/dist/builder/SkillInvokerConfigBuilder';
-// import { WebSocketClientConfigBuilder } from './node_modules/ask-sdk-local-debug/dist/builder/WebSocketClientConfigBuilder';
-// import { LocalDebugClient } from './node_modules/ask-sdk-local-debug/dist/client/LocalDebugClient';
-// import { argsParser /*, getHandlerFunction*/ } from './node_modules/ask-sdk-local-debug/dist/util/ArgsParserUtils';
-
-// const WebSocket = require('ws');
-// const ClientConfigBuilder = require('./node_modules/ask-sdk-local-debug/dist/builder/ClientConfigBuilder');
-// const SkillInvokerConfigBuilder = require('./node_modules/ask-sdk-local-debug/dist/builder/SkillInvokerConfigBuilder');
-// const WebSocketClientConfigBuilder = require('./node_modules/ask-sdk-local-debug/dist/builder/WebSocketClientConfigBuilder');
-// const LocalDebugClient = require('./node_modules/ask-sdk-local-debug/dist/client/LocalDebugClient');
-// const argsParser /*, getHandlerFunction*/ = require('./node_modules/ask-sdk-local-debug/dist/util/ArgsParserUtils');
-
-// import * as express from "express";
-// import { LambdaHandler } from "ask-sdk-core/dist/skill/factory/BaseSkillFactory";
-// import { RequestEnvelope } from "ask-sdk-model";
 import { handler as skillHandler } from "../lambda";
-// const handler = require("../lambda/index");
-// const skillHandler = handler;
 
 const { argv } = argsParser();
 
 const clientConfig = new ClientConfigBuilder()
-    .withAccessToken(argv['accessToken'])
-    // .withAccessToken(argv.accessToken)
+    // .withAccessToken(argv['accessToken'])
+    .withAccessToken(argv.accessToken)
     // .withAccessToken(accessToken)
-    .withHandlerName(argv['handlerName'])
-    // .withHandlerName(argv.handlerName)
+    // .withHandlerName(argv['handlerName'])
+    .withHandlerName(argv.handlerName)
     // .withHandlerName("handler")
-    .withSkillEntryFile(argv['skillEntryFile'])
-    // .withSkillEntryFile(argv.skillEntryFile)
+    // .withSkillEntryFile(argv['skillEntryFile'])
+    .withSkillEntryFile(argv.skillEntryFile)
     // .withSkillEntryFile(skillEntryFile)
-    .withSkillId(argv['skillId'])
-    // .withSkillId(argv.skillId)
+    // .withSkillId(argv['skillId'])
+    .withSkillId(argv.skillId)
     // .withSkillId(skillId)
-    .withRegion(argv['region'])
-    // .withSkillId(argv.region)
+    // .withRegion(argv['region'])
+    .withSkillId(argv.region)
     // .withRegion(region)
     .build();
 
