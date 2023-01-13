@@ -1,29 +1,34 @@
-var gulp = require("gulp");
-var ts = require("gulp-typescript");
+/***********************************************************
+ * Imports
+ ***********************************************************/
+const gulp = require("gulp");
+const ts = require("gulp-typescript");
+
+/***********************************************************
+ * Constants
+ ***********************************************************/
 var tsProject = ts.createProject("tsconfig.json");
+const IN_DIR = "src";
+const OUT_DIR = "dist/lambda";
 
-var OUT_DIR = "dist";
-var IN_DIR = "lambda";
+/***********************************************************
+ * Pipeline
+ ***********************************************************/
 
-// compile typescript
+// Compile to Typescript
 gulp.task("compile", function () {
-    return tsProject.src()
+    return tsProject
+        .src()
         .pipe(tsProject())
         .js.pipe(gulp.dest(OUT_DIR));
 });
 
-// copy json files (e.g. localization json)
+// Copy json files (e.g. localization json) from IN_DIR to OUT_DIR
 gulp.task("json", function () {
     return gulp
-        .src(`${IN_DIR}/custom/*.json`)
-        .pipe(gulp.dest(`${OUT_DIR}/custom`));
+        .src(`${IN_DIR}/lambda/*.json`)
+        .pipe(gulp.dest(`${OUT_DIR}`));
 });
 
-// gulp.task("json-local", function () {
-//     return gulp
-//         .src(`${IN_DIR}/local/*.json`)
-//         .pipe(gulp.dest(`${OUT_DIR}/local`));
-// });
-
-// gulp.task("default", gulp.parallel(["compile", "json", "json-local"]));
+// Run defined tasks 
 gulp.task("default", gulp.parallel(["compile", "json"]));

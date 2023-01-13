@@ -3,11 +3,8 @@
   "version": "1.0.0",
   "description": "This is a sample debugger for Typescript, based on ask-sdk-local-debug logic.",
   "main": "index.js",
-  "type": "commonjs",
-  "scripts": {
-    "clean": "rimraf dist/debugger",
-    "compile": "pwd && npm run clean && cd .. && pwd && tsc -b tsconfig.json && echo \"finish build\" && cd local && pwd && cp package.json ./my-dist/package.json && npm i && cd .. && pwd"
-  },
+  "type": "module",
+  "scripts": {},
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -20,6 +17,8 @@
     "@types/node": "^18.11.18",
     "@types/ws": "^8.5.4",
     "ask-sdk-local-debug": "^1.1.0",
+    "eslint-import-resolver-typescript": "^3.5.3",
+    "eslint-plugin-import": "^2.27.4",
     "rimraf": "^3.0.2"
   }
 }

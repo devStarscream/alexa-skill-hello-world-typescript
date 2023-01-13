@@ -12,7 +12,7 @@
             "program": "${command:ask.debugAdapterPath}",
             "internalConsoleOptions": "openOnSessionStart",
             "outFiles": [
-                "${workspaceFolder}/dist/custom/**/*.js"
+                "${workspaceFolder}/dist/lambda/**/*.js"
             ],
             "args": [
                 "--accessToken",
@@ -22,24 +22,31 @@
                 "--handlerName",
                 "handler",
                 "--skillEntryFile",
-                "${workspaceFolder}/dist/custom/index.js",
+                "${workspaceFolder}/dist/lambda/index.js",
                 "--region",
                 "EU"
             ],
-            "cwd": "${workspaceFolder}/dist/custom"
+            "cwd": "${workspaceFolder}/dist/lambda"
         },
         {
             "name": "Alexa Skill (Ts)",
             "type": "node",
             "request": "launch",
-            "cwd": "${workspaceFolder}/src/debugger",
+            "preLaunchTask": "npm: debugger",
+            // "preLaunchTask": "tsc: build - tsconfig.debugger.json",
             "program": "${workspaceFolder}/src/debugger/index.ts",
             "sourceMaps": true,
+            "smartStep": true,
             "internalConsoleOptions": "openOnSessionStart",
             "outFiles": [
-                "${workspaceFolder}/dist/debugger/*.js"
+                "${workspaceFolder}/src/dist/debugger/**/*.js"
             ],
+            // "runtimeArgs": [
+            //     "-r",
+            //     "ts-node/register"
+            // ],
             "args": [
+                // "${workspaceFolder}/src/debugger/index.ts",
                 "--accessToken",
                 "${command:ask.accessToken}",
                 "--skillId",
@@ -47,10 +54,14 @@
                 "--handlerName",
                 "handler",
                 "--skillEntryFile",
-                "${workspaceFolder}/dist/debugger/index.js",
+                "${workspaceFolder}/src/dist/debugger/index.js",
                 "--region",
                 "EU"
-            ]
+            ],
+            // "env": {
+            //     "NODE_PATH": "${workspaceFolder}/src/dist/debugger"
+            // },
+            "cwd": "${workspaceFolder}/src/debugger",
         }
     ]
 }

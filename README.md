@@ -1,6 +1,3 @@
-[![Build Status](https://travis-ci.org/Xzya/alexa-typescript-starter.svg?branch=master)](https://travis-ci.org/Xzya/alexa-typescript-starter)
-[![codecov](https://codecov.io/gh/Xzya/alexa-typescript-starter/branch/master/graph/badge.svg)](https://codecov.io/gh/Xzya/alexa-typescript-starter)
-
 # Alexa Hello World Skill project using AWS Lambda and Typescript
 
 This is a simple starter project for Alexa skills using Typescript.
@@ -40,6 +37,7 @@ This is a simple starter project for Alexa skills using Typescript.
 | `Localization` | Adds `i18next` localization functions to the `RequestAttributes`. |
 | `Slots` | Parses the slot values, adds additional useful information to them (e.g. if it was an exact match, or if it's ambiguous etc.), and adds them to the `RequestAttributes`. Check the `GetSlotValues` function inside `lambda/custom/lib/helpers.ts` for more details. |
 
+
 ### Extra content
 
 #### Localization strings
@@ -58,9 +56,77 @@ Many helper functions which should reduce code duplication, and reduce the code 
 
 Check `lambda/custom/lib/helpers.ts`.
 
-### Local development
+---
 
-Contains an `http` server using `express`, which you can use with `ngrok` or `servo.net` during local development. Check the [Local development section below](#local-development) for more details.
+### Live Debugging
+ This repository uses Visual Studio Code debugger configuration files in `.vscode/launch.json` file.
+ There are available two configurations:
+ 1. `Alexa Skill (Node)` debugger
+ 2. `Alexa Skill (Ts)` debugger
+
+#### Typescript debugger configuration
+This configuration is derived from [ask-sdk-local-debug](https://github.com/alexa/alexa-skills-kit-sdk-for-nodejs/tree/2.0.x/ask-sdk-local-debug) module. Check the module README for more details.
+
+ ```json
+ ...
+ {
+	"name": "Alexa Skill (Ts)",
+	"type": "node",
+	"request": "launch",
+	"preLaunchTask": "npm: debugger",
+	"program": "${workspaceFolder}/src/debugger/index.ts",
+	"sourceMaps": true,
+	"smartStep": true,
+	"internalConsoleOptions": "openOnSessionStart",
+	"outFiles": [
+		"${workspaceFolder}/src/dist/debugger/**/*.js"
+	],
+	"args": [
+		"--accessToken",
+		"${command:ask.accessToken}",
+		"--skillId",
+		"${command:ask.skillIdFromWorkspace}",
+		"--handlerName",
+		"handler",
+		"--skillEntryFile",
+		"${workspaceFolder}/src/dist/debugger/index.js",
+		"--region",
+		"EU"
+	],
+	"cwd": "${workspaceFolder}/src/debugger"
+}
+...
+```
+
+In order to transpile Typescript code into JS and debug the skill on your VS Console, it's necessary to create a dedicated "debugger" configuration in `./src/debugger/index.ts`.
+
+To debug the skill's Typescript code
+1.  Select `Alexa Skill (Ts)` VSCode available debuggers
+2.  Set a breakpoint in code under `./src/lambda`, for instance place a breakpoint in `Launch.ts` and `Hello.ts` files.
+3. Open your terminal and run ``` $ ask dialog -l en-US -p YOUR_ASK_PROFILE -g development ```
+4. Type in your terminal `open test hello world`
+5. Check the breakpoint into VSCode
+6. Check the Debug Console into VSCode
+7. Type in your terminal `hello world`
+8. Check the breakpoint into VSCode
+9. Check the Debug Console into VSCode
+10. type `CTRL + c` to exits `ask dialog`.
+11. Stop VSCode debugger.
+
+#### NodeJS debugger configuration
+This configuration is baded on [ask-sdk-local-debug](https://github.com/alexa/alexa-skills-kit-sdk-for-nodejs/tree/2.0.x/ask-sdk-local-debug) module.
+You can debug also the transpiled NodeJS code, to do so:
+1. Select `Alexa Skill (Node)` VSCode available debuggers
+2. Set a breakpoint into the transpiled code under `./dist/lambda`, for instance place a breakpoint in `Launch.js` and `Hello.js` files.
+3. Open your terminal and run ``` $ ask dialog -l en-US -p YOUR_ASK_PROFILE -g development ```
+4. Type in your terminal `open test hello world`
+5. Check the breakpoint into VSCode
+6. Check the Debug Console into VSCode
+7. Type in your terminal `hello world`
+8. Check the breakpoint into VSCode
+9. Check the Debug Console into VSCode
+10. type `CTRL + c` to exits `ask dialog`.
+11. Stop VSCode debugger.
 
 ### Scripts
 
@@ -119,46 +185,17 @@ $ ask deploy
 
 In order to develop locally and see your changes reflected instantly, you will need to create an SSH tunnel or expose somehow your local development server. There are several services that allow you to do this, for example [ngrok](https://ngrok.com/) or [serveo.net](https://serveo.net/).
 
-### Using servo.net
 
-This is the easiest to setup
-
-1. You need to have an SSH client installed, then simply run
-
-	1. ```bash
-	   $ ssh -R 80:localhost:3980 serveo.net
-	   ```
-	2. Forwarding HTTP traffic from [https://YOUR_URL]
-	3. Press g to start a GUI session and ctrl-c to quit.
-
-2. Once you see the URL, copy it and go to your Skill console.
-
-3. Open the `Endpoint` menu and select `HTTPS`
-
-4. Under `Default Region` paste the previous URL you copied.
-
-5. On the select box choose: `My development endpoint is a sub-domain of a domain that has a wildcard certificate from a certificate authority`.
-
-6. You are done! Just run `npm start` to start the local server and begin testing the skill.
-
-### Using ngrok.io
-
-1. [Install ngrok](https://ngrok.com/download)
-
-2. Run `ngrok http 3980`
-
-3. Copy the URL and follow the same steps above from 3 to 6.
 
 ## Developer tasks
 
 | Command | Description |
 | --- | --- |
 | `clean` | Deletes the `dist` folder |
-| `build` | Builds the lambda function and exports it to the `dist` folder |
+| `pre-build` | Builds the lambda function and exports it to the `dist/lambda` folder |
+| `build` | Builds the lambda function, runs tests and exports it to the `dist/lambda` folder |
 | `deploy` | Builds the lambda function and deploys EVERYTHING (skill, model, lambda) |
 | `deploy:lambda` | Builds the lambda function and deploys it (just the lambda function) |
-| `deploy:local` | Deploys the skill details for the local profile, which will update the HTTPS endpoint |
-| `start` | Starts the local `express` server using `nodemon` for local development |
 
 To see the actual commands, check `package.json`.
 
@@ -168,20 +205,18 @@ Also check the [ASK CLI Command Reference](https://developer.amazon.com/docs/sma
 
 Taken from [the official hello world project](https://github.com/alexa/skill-sample-nodejs-hello-world/blob/master/instructions/7-cli.md#testing).
 
-1. To test, you need to login to Alexa Developer Console, and **enable the "Test" switch on your skill from the "Test" Tab**.
-
-2. Simulate verbal interaction with your skill through the command line (this might take a few moments) using the following example:
-
+In ordere to test your skill you need either:
+1. login to Alexa Developer Console, and **enable the "Test" switch on your skill from the "Test" Tab**.****, or
+2. Simulate verbal interaction with your skill through the ASK CLI (this might take a few moments) using the following command:
 	```bash
-	 $ ask simulate -l en-US -t "open greeter"
+	 $ ask dialog -l en-US -p YOUR_ASK_PROFILE -g development
+	```
+    * `-l` is the locale you want to test (this is one of the interaction models you have under `skill-package/interactionModels/custom`);
+    * -p is the Alexa profile you configured in your ASK CLI (run `ask configure` to list the account you currently have), in case you're using `default` account then remove parameter and it looks like the following:
+       * ``` $ ask dialog -l en-US -g development ```
+    * `-g` is the stage of the skill.
 
-	 ✓ Simulation created for simulation id: 4a7a9ed8-94b2-40c0-b3bd-fb63d9887fa7
-	◡ Waiting for simulation response{
-	  "status": "SUCCESSFUL",
-	  ...
-	 ```
-
-3. Once the "Test" switch is enabled, your skill can be tested on devices associated with the developer account as well. Speak to Alexa from any enabled device, from your browser at [echosim.io](https://echosim.io/welcome), or through your Amazon Mobile App and say :
+3. Once the "Test" switch is enabled, test your skill on devices associated with the developer account as well. Speak to Alexa from any enabled device, from your browser at [echosim.io](https://echosim.io/welcome), or through your Amazon Mobile App and say :
 
 	```text
 	Alexa, start hello world
